@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateFgroupComponent } from './create-fgroup/create-fgroup.component';
 import { CreateMeetComponent } from './create-meet/create-meet.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { FamiliarGroupsComponent } from './familiar-groups/familiar-groups.component';
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'main/familiargroups',
     component: FamiliarGroupsComponent
+  },
+  {
+    path: 'main/familiargroups/create',
+    component: CreateFgroupComponent
   }
 ];
 

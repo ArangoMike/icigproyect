@@ -14,6 +14,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { CommonModule } from '@angular/common';
 import { CreateMeetComponent } from './create-meet/create-meet.component';
 import { FamiliarGroupsComponent } from './familiar-groups/familiar-groups.component';
+import { CreateFgroupComponent } from './create-fgroup/create-fgroup.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { FamiliarGroupsComponent } from './familiar-groups/familiar-groups.compo
     CreateUserComponent,
     CreateMeetComponent,
     FamiliarGroupsComponent,
+    CreateFgroupComponent,
   ],
   imports: [
     CommonModule,
