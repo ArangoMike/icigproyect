@@ -3,34 +3,38 @@
       <h4>Crear reunion</h4>
     </div>
     <div class="card-body">
-      <form [formGroup]="regForm" >
+      <form [formGroup]="regForm" (ngSubmit)="guardar()" >
         <img class="mb-4" src="../../assets/Online team meeting _Isometric.png" alt="" width="150" height="150">
         <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="floatingInput" placeholder="name" formControlName="name">
+          <input type="text" class="form-control" id="floatingInput" placeholder="name" 
+          [class.is-invalid]="nameNoValido" formControlName="name">
           <label for="floatingInput">Nombre</label>
-          <small  class="text-danger">
+          <small  *ngIf="nameNoValido"  class="text-danger">
             Ingrese minimo 4 letras
           </small>
         </div>
         
         <div class="form-floating mb-2">
-          <input type="date" class="form-control" id="floatingInput" placeholder="fecha" formControlName="date">
+          <input type="date" class="form-control" id="floatingInput" placeholder="fecha" 
+          [class.is-invalid]="fechaNoValida" formControlName="fecha">
           <label for="floatingInput">Fecha</label>
-          <small class="text-danger">
+          <small  *ngIf="fechaNoValida" class="text-danger">
             Ingrese una fecha
           </small>
         </div>
         <div class="form-floating mb-2">
-            <input type="time" class="form-control" id="floatingInput" placeholder="hour" formControlName="hour">
+            <input type="time" class="form-control" id="floatingInput" placeholder="hora" 
+            [class.is-invalid]="horaNoValida"formControlName="hora">
             <label for="floatingInput">Hora</label>
-            <small  class="text-danger">
+            <small  *ngIf="horaNoValida"  class="text-danger">
               Ingrese una hora
             </small>
           </div>
         <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="floatingInput" placeholder="description" formControlName="description">
-          <label for="floatingInput">Descripcion</label>
-          <small  class="text-danger">
+          <input type="text" class="form-control" id="floatingInput" placeholder="descripcion" 
+          [class.is-invalid]="descripcionNoValida" formControlName="descripcion">
+          <label for="floatingInput">Descripción</label>
+          <small  *ngIf="descripcionNoValida"  class="text-danger">
             Ingrese una descripcion
           </small>
         </div>

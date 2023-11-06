@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { UsuarioService } from '../service/usuario.service';
 
 @Component({
   selector: 'app-create-user',
@@ -13,6 +16,9 @@ export class CreateUserComponent {
   
 
   constructor(private fb: FormBuilder,
+    private route: Router,
+    private authService: UsuarioService,
+    private toast: ToastrService
     ){
     this.crearFormulario();
     
@@ -50,7 +56,7 @@ export class CreateUserComponent {
     })
   }
 
-/*
+
   guardar() {
 
     if (this.regForm.invalid) {
@@ -64,23 +70,26 @@ export class CreateUserComponent {
 
       var body = {
         email: this.regForm.value.email,
-        password: this.regForm.value.password,
-        name: this.regForm.value.name
+        contraseñaUsu: this.regForm.value.password,
+        nombreUsu: this.regForm.value.name,
+        apellidoUsu: this.regForm.value.lastName,
+        numeroCelularUsu: this.regForm.value.phone,
+        rolIglesiaUsu: this.regForm.value.role
       }
+
       // Aquí hago el consumo del api post
       this.authService.saveUser(body)
         .subscribe(response => {
 
           this.toast.success('Redirigiendo...', 'Registro exitoso!')
           setTimeout(() => {
-            this.route.navigate(['/login'])
+            this.route.navigate(['/main/users'])
           }, 2000);
 
         })
 
     }
   }
-  */
 
 
 }

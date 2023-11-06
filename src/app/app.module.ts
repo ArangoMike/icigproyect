@@ -15,6 +15,8 @@ import { CommonModule } from '@angular/common';
 import { CreateMeetComponent } from './create-meet/create-meet.component';
 import { FamiliarGroupsComponent } from './familiar-groups/familiar-groups.component';
 import { CreateFgroupComponent } from './create-fgroup/create-fgroup.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -33,6 +35,9 @@ import { CreateFgroupComponent } from './create-fgroup/create-fgroup.component';
   imports: [
     CommonModule,
     BrowserModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule
