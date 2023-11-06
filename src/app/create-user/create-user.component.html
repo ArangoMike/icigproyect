@@ -6,9 +6,10 @@
       <form [formGroup]="regForm" >
         <img class="mb-4" src="../../assets/New campaign_Outline.png" alt="" width="150" height="150">
         <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="floatingInput" placeholder="name" formControlName="name">
+          <input type="text" class="form-control" id="floatingInput" placeholder="name" 
+          formControlName="name"  [class.is-invalid]="nameNoValido">
           <label for="floatingInput">Nombre</label>
-          <small  class="text-danger">
+          <small  *ngIf="nameNoValido" class="text-danger">
             Ingrese minimo 4 letras
           </small>
         </div>
@@ -16,35 +17,39 @@
         <div class="form-floating mb-2">
           <input type="text" class="form-control" id="floatingInput" placeholder="name" formControlName="lastName">
           <label for="floatingInput">Apellidos</label>
-          <small class="text-danger">
-            Ingrese minimo 3 letras
+          <small *ngIf="nameNoValido" class="text-danger" class="text-danger">
+            Ingrese minimo 4 letras
           </small>
         </div>
         <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="floatingInput" placeholder="phone" formControlName="phone">
+            <input type="text" class="form-control" id="floatingInput" placeholder="phone" 
+            formControlName="phone" [class.is-invalid]="celNoValido">
             <label for="floatingInput">Celular</label>
-            <small  class="text-danger">
-              Ingrese un numero correcto
+            <small *ngIf="celNoValido" class="text-danger">
+              Ingrese un celular correcto
             </small>
           </div>
         <div class="form-floating mb-2">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name" formControlName="email">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name" 
+          formControlName="email"  [class.is-invalid]="emailNoValido">
           <label for="floatingInput">Correo Electrónico</label>
-          <small  class="text-danger">
+          <small  *ngIf="emailNoValido" class="text-danger">
             Ingrese un correo valido
           </small>
         </div>
         <div class="form-floating mb-2">
-          <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="password">
+          <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com" 
+          formControlName="password"  [class.is-invalid]="passNoValido" >
           <label for="floatingInput">Contraseña</label>
-          <small  class="text-danger">
+          <small   *ngIf="passNoValido" class="text-danger">
             Ingrese una contraseña valida y que coincidan
           </small>
         </div>
         <div class="form-floating mb-2">
-          <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="password1">
+          <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com" 
+          formControlName="password1" [class.is-invalid]="passNoValido" >
           <label for="floatingInput">Contraseña</label>
-          <small class="text-danger">
+          <small  *ngIf="passNoValido" class="text-danger">
             Ingrese una contraseña valida y que coincidan
           </small>
         </div>

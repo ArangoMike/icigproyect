@@ -12,7 +12,8 @@ export class CreateUserComponent {
   regForm!: FormGroup;
   
 
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder,
+    ){
     this.crearFormulario();
     
   }
@@ -23,16 +24,65 @@ export class CreateUserComponent {
     { value: "ROLE_ADMIN", viewValue: 'Administrador' },
   ];
 
+  get passNoValido() {
+    return this.regForm.get('password')?.invalid  && this.regForm.get('password')?.touched 
+    || this.regForm.get('password')?.value != this.regForm.get('password1')?.value && this.regForm.get('password')?.touched 
+  }
+  get emailNoValido() {
+    return this.regForm.get('email')?.invalid && this.regForm.get('email')?.touched
+  }
+  get nameNoValido() {
+    return this.regForm.get('name')?.invalid && this.regForm.get('name')?.touched
+  }
+  get celNoValido() {
+    return this.regForm.get('phone')?.invalid && this.regForm.get('phone')?.touched
+  }
+
   crearFormulario(): void {
     this.regForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(4)]],
       lastName: ['', [Validators.required, Validators.minLength(3)]],
+      phone: ['', [Validators.required, Validators.minLength(6)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4)]],
       password1: ['', [Validators.required, Validators.minLength(4)]],
       role: [this.roles[0].value, Validators.required]
     })
   }
+
+/*
+  guardar() {
+
+    if (this.regForm.invalid) {
+
+      this.toast.error('Intenta de nuevo', 'Error en los datos!');
+      return Object.values(this.regForm.controls).forEach(control => {
+        control.markAllAsTouched();
+      })
+
+    } else {
+
+      var body = {
+        email: this.regForm.value.email,
+        password: this.regForm.value.password,
+        name: this.regForm.value.name
+      }
+      // Aquí hago el consumo del api post
+      this.authService.saveUser(body)
+        .subscribe(response => {
+
+          this.toast.success('Redirigiendo...', 'Registro exitoso!')
+          setTimeout(() => {
+            this.route.navigate(['/login'])
+          }, 2000);
+
+        })
+
+    }
+  }
+  */
+
+
 }
 
 interface Roles {
