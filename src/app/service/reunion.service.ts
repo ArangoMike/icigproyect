@@ -24,4 +24,10 @@ export class ReunionService {
     let direction = this.url;
     return this.http.get<Reunion[]>(direction);
   }
+
+  deleteReunion(idReunion: number) {
+    let direction = this.url + '/' + idReunion;
+    return this.http.delete<any>(direction);
+  }
+
 }

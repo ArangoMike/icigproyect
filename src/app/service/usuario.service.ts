@@ -25,4 +25,9 @@ export class UsuarioService {
     return this.http.get<UserM[]>(direction);
   }
 
+  deleteUser(idUser: number) {
+    let direction = this.url + '/' + idUser;
+    return this.http.delete<any>(direction);
+  }
+
 }

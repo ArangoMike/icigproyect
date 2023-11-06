@@ -3,28 +3,31 @@
       <h4>Crear reunion</h4>
     </div>
     <div class="card-body">
-      <form [formGroup]="regForm" >
+      <form [formGroup]="regForm" (ngSubmit)="guardar()" >
         <img class="mb-4" src="../../assets/famgroups.png" alt="" width="150" height="150">
         <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="floatingInput" placeholder="name" formControlName="name">
+          <input type="text" class="form-control" id="floatingInput" placeholder="name" 
+          [class.is-invalid]="nameNoValido" formControlName="name">
           <label for="floatingInput">Nombre</label>
-          <small  class="text-danger">
+          <small *ngIf="nameNoValido"  class="text-danger">
             Ingrese minimo 4 letras
           </small>
         </div>
         
         <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="floatingInput" placeholder="liderID" formControlName="liderID">
+          <input type="text" class="form-control" id="floatingInput" placeholder="liderId" 
+          [class.is-invalid]="liderIdNoValido" formControlName="liderId">
           <label for="floatingInput">LiderID</label>
-          <small class="text-danger">
-            Ingrese un UserID valido
+          <small *ngIf="liderIdNoValido" class="text-danger">
+            Ingrese un email de usuario valido
           </small>
         </div>
         
         <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="floatingInput" placeholder="description" formControlName="description">
+          <input type="text" class="form-control" id="floatingInput" placeholder="description" 
+          [class.is-invalid]="descripcionNoValido" formControlName="description">
           <label for="floatingInput">Descripcion</label>
-          <small  class="text-danger">
+          <small *ngIf="descripcionNoValido" class="text-danger">
             Ingrese una descripcion
           </small>
         </div>

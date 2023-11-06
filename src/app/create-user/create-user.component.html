@@ -15,7 +15,8 @@
         </div>
         
         <div class="form-floating mb-2">
-          <input type="text" class="form-control" id="floatingInput" placeholder="name" formControlName="lastName">
+          <input type="text" class="form-control" id="floatingInput" placeholder="name" formControlName="lastName"
+          [class.is-invalid]="nameNoValido">
           <label for="floatingInput">Apellidos</label>
           <small *ngIf="nameNoValido" class="text-danger" class="text-danger">
             Ingrese minimo 4 letras
@@ -54,13 +55,17 @@
           </small>
         </div>
         <div class="form-floating mb-2">
-          <select class="form-select" formControlName="role">
+          <select class="form-select" formControlName="role"
+          [class.is-invalid]="roleNoValido" >
             <option *ngFor="let rol of roles" [value]="rol.value">
               {{ rol.viewValue }}
             </option>
           </select>
           <label for="floatingInput">Rol</label>
           
+          <small  *ngIf="roleNoValido" class="text-danger">
+            Ingrese al menos un rol
+          </small>
         </div>
         <button class="w-50 btn btn-lg btn-primary mb-2" type="submit">Registrar usuario</button>
       </form>

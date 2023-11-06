@@ -24,7 +24,7 @@ export class CreateUserComponent {
     
   }
   roles: Roles[] = [
-    { value: "deafult", viewValue: 'Seleccione una opción' },
+    { value: "", viewValue: 'Seleccione una opción' },
     { value: "ROLE_USER", viewValue: 'Usuario' },
     { value: "ROLE_OPERATION", viewValue: 'Operador' },
     { value: "ROLE_ADMIN", viewValue: 'Administrador' },
@@ -43,6 +43,9 @@ export class CreateUserComponent {
   get celNoValido() {
     return this.regForm.get('phone')?.invalid && this.regForm.get('phone')?.touched
   }
+  get roleNoValido() {
+    return this.regForm.get('role')?.invalid && this.regForm.get('role')?.touched
+  }
 
   crearFormulario(): void {
     this.regForm = this.fb.group({
@@ -52,7 +55,7 @@ export class CreateUserComponent {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4)]],
       password1: ['', [Validators.required, Validators.minLength(4)]],
-      role: [this.roles[0].value, Validators.required]
+      role: [this.roles[0].value, [Validators.required, Validators.minLength(3)]]
     })
   }
 
