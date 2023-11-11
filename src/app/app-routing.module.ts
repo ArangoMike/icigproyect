@@ -3,10 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateFgroupComponent } from './create-fgroup/create-fgroup.component';
 import { CreateMeetComponent } from './create-meet/create-meet.component';
 import { CreateUserComponent } from './create-user/create-user.component';
+import { EditfgroupsComponent } from './familiar-groups/editfgroups/editfgroups.component';
 import { FamiliarGroupsComponent } from './familiar-groups/familiar-groups.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { EditmeetingsComponent } from './meetings/editmeetings/editmeetings.component';
 import { MeetingsComponent } from './meetings/meetings.component';
+import { EditusersComponent } from './users/editusers/editusers.component';
 import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
@@ -40,13 +43,26 @@ const routes: Routes = [
     component: CreateUserComponent
   },
   {
+    path: 'main/users/edit-user/:id',
+    component: EditusersComponent
+  },
+  {
     path: 'main/familiargroups',
     component: FamiliarGroupsComponent
   },
   {
     path: 'main/familiargroups/create',
     component: CreateFgroupComponent
-  }
+  },
+  {
+    path: 'main/familiargroups/edit-fgroup/:id',
+    component: EditfgroupsComponent
+  },
+  {
+    path: 'main/meetings/edit-meet/:id',
+    component: EditmeetingsComponent
+  },
+  
 ];
 
 @NgModule({

@@ -25,9 +25,18 @@ export class UsuarioService {
     return this.http.get<UserM[]>(direction);
   }
 
+  getUser(id: any):Observable<UserM>{
+    let direction = this.url + '/' + id;
+    return this.http.get<UserM>(direction);
+  }
+
   deleteUser(idUser: number) {
     let direction = this.url + '/' + idUser;
     return this.http.delete<any>(direction);
   }
 
+  updateUser(id: any, usuario: UserM):Observable<any>{
+    let direction = this.url +'/'+ id;
+    return this.http.put<any>(direction,usuario);
+  }
 }

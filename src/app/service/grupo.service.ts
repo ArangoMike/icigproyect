@@ -25,8 +25,18 @@ export class GrupoService {
     return this.http.get<Grupo[]>(direction);
   }
 
+  getGrupo(id: any):Observable<Grupo>{
+    let direction = this.url + '/' + id;
+    return this.http.get<Grupo>(direction);
+  }
+
   deleteGrupo(idGrupo: number) {
     let direction = this.url + '/' + idGrupo;
     return this.http.delete<any>(direction);
+  }
+
+  updateGrupo(id: any, grupo: Grupo):Observable<any>{
+    let direction = this.url +'/'+ id;
+    return this.http.put<any>(direction,grupo);
   }
 }

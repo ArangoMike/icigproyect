@@ -1,0 +1,118 @@
+
+<section class="">
+ 
+    <div class="px-4  py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+      <div class="container">
+        <div class="row gx-lg-5   align-items-center">
+          
+          <div class="col-lg-6 mb-5 mb-lg-0 ">
+  
+            
+            
+            <div class="d-flex justify-content-center mb-4">
+            <h1 class=" display-3 fw-bold ls-tight ">
+             Editar 
+            </h1>
+          </div>
+            <div class="d-flex justify-content-center mb-4" style=>
+            <h1 class=" display-3 fw-bold ls-tight ">
+             
+              <span class="text-primary">Reunion</span>
+            </h1>
+          </div>
+            <div class="d-flex justify-content-center mb-4"> <img  src="../../../assets/User Group_Monochromatic.png"  alt="" width="200" height="200"></div>
+            <p style="color: hsl(217, 10%, 50.8%)">
+              Esta sección es altamente sencible, porfavor, abstengase de editar
+              si no es un administrador de la pagina, trabajamos para tener login
+              de usuarios y manejo adecuado de los datos.
+              Sí usted es administrador recuerde editar solo los datos que quiere 
+              editar
+            </p>
+          
+          </div>
+  
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <div class="card">
+              
+              <div class="card-body py-5 px-md-5">
+                
+                <form [formGroup]="regForm" (ngSubmit)="guardar()" class="mx-1 mx-md-4">
+  
+                  <div class="form-outline d-flex justify-content-center mb-4">
+                  <h4>ID: {{reunion?.idReunion }}</h4>
+                </div>
+    
+                  <div class="row">
+                    <div class="form-floating mb-2">
+                      <input type="text" class="form-control" id="floatingInput" placeholder="name" 
+                      [class.is-invalid]="nameNoValido" formControlName="nombreReunion">
+                      <label for="floatingInput">Nombre</label>
+                      <small  *ngIf="nameNoValido"  class="text-danger">
+                        Ingrese minimo 4 letras
+                      </small>
+                    </div>
+                    
+                    <div class="form-floating mb-2">
+                      <input type="date" class="form-control"  id="floatingInput" placeholder="fecha" 
+                      [class.is-invalid]="fechaNoValida" formControlName="fechaReunion">
+                      <label for="floatingInput">Fecha</label>
+                      <small  *ngIf="fechaNoValida" class="text-danger">
+                        Ingrese una fecha
+                      </small>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="time" class="form-control" id="floatingInput" placeholder="hora" 
+                        [class.is-invalid]="horaNoValida"formControlName="horaReunion">
+                        <label for="floatingInput">Hora</label>
+                        <small  *ngIf="horaNoValida"  class="text-danger">
+                          Ingrese una hora
+                        </small>
+                      </div>
+                    <div class="form-floating mb-2">
+                      <input type="text" class="form-control"  id="floatingInput" placeholder="descripcion" 
+                      [class.is-invalid]="descripcionNoValida" formControlName="descripcionReunion">
+                      <label for="floatingInput">Descripción</label>
+                      <small  *ngIf="descripcionNoValida"  class="text-danger">
+                        Ingrese una descripcion
+                      </small>
+                    </div>
+                  </div>
+  
+  
+                  <!-- Submit button -->
+                  <div class="d-flex justify-content-center mb-4">
+                  <button type="submit"  class=" btn btn-primary btn-block mb-4">
+                    Editar
+                  </button>
+                </div>
+                 
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div
+class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+
+<div class="text-white mb-3 mb-md-0">
+   Copyright ICIG© 2023. Todos los derechos reservados. 
+</div>
+
+<div>
+  <a href="https://www.facebook.com/IglesiaCristianaImpactandoGeneraciones" class="text-white me-4">
+    <i class="bi bi-facebook"></i>
+  </a>
+  <a href="https://www.youtube.com/@iglesiacristianaimpactando165" class="text-white me-4">
+    <i class="bi bi-youtube"></i>
+  </a>
+
+  <a href="https://wa.link/bbi571" class="text-white">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+</div>
+</div>

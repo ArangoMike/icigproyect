@@ -25,9 +25,19 @@ export class ReunionService {
     return this.http.get<Reunion[]>(direction);
   }
 
+  getReunion(id: any):Observable<Reunion>{
+    let direction = this.url + '/' + id;
+    return this.http.get<Reunion>(direction);
+  }
+
   deleteReunion(idReunion: number) {
     let direction = this.url + '/' + idReunion;
     return this.http.delete<any>(direction);
+  }
+
+  updateReunion(id: any, reunion: Reunion):Observable<any>{
+    let direction = this.url +'/'+ id;
+    return this.http.put<any>(direction,reunion);
   }
 
 }

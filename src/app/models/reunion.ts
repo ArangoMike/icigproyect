@@ -1,7 +1,7 @@
 export interface Reunion {
     idReunion?: number;
     nombreReunion: String;
-    fechaReunion: String;
+    fechaReunion: Date;
     horaReunion: String;
     descripcionReunion: String;
 }

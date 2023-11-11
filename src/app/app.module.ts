@@ -11,12 +11,15 @@ import { MeetingsComponent } from './meetings/meetings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from 'src/shared/shared.module';
 import { CreateUserComponent } from './create-user/create-user.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { CreateMeetComponent } from './create-meet/create-meet.component';
 import { FamiliarGroupsComponent } from './familiar-groups/familiar-groups.component';
 import { CreateFgroupComponent } from './create-fgroup/create-fgroup.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { EditmeetingsComponent } from './meetings/editmeetings/editmeetings.component';
+import { EditusersComponent } from './users/editusers/editusers.component';
+import { EditfgroupsComponent } from './familiar-groups/editfgroups/editfgroups.component';
 
 
 @NgModule({
@@ -31,6 +34,9 @@ import { ToastrModule } from 'ngx-toastr';
     CreateMeetComponent,
     FamiliarGroupsComponent,
     CreateFgroupComponent,
+    EditmeetingsComponent,
+    EditusersComponent,
+    EditfgroupsComponent,
   ],
   imports: [
     CommonModule,
@@ -42,7 +48,9 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
