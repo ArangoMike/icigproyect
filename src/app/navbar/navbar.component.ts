@@ -13,10 +13,12 @@ export class NavbarComponent implements OnInit{
   constructor ( private cookieSvc: CookieService)
   {}
   ngOnInit(): void {
+    //accedemos si hay un usuario ya logeado o no
     this.userT =this.cookieSvc.get('user');
   }
 
 
+  //metodo para cerrar sesion del usuario en curso
   logout(){
     this.cookieSvc.deleteAll();
       window.location.assign("/login")

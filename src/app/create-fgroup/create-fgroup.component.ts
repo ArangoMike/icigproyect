@@ -14,6 +14,7 @@ export class CreateFgroupComponent {
   regForm!: FormGroup;
   
 
+  // Constructor del componente, inyecta servicios y herramientas necesarios.
   constructor(private fb: FormBuilder,
     private route: Router,
     private authService:GrupoService ,
@@ -33,7 +34,7 @@ export class CreateFgroupComponent {
   get liderIdNoValido() {
     return this.regForm.get('liderId')?.invalid && this.regForm.get('liderId')?.touched
   }
-
+// formulario para la creacion de grupos familiares
   crearFormulario(): void {
     this.regForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(4)]],

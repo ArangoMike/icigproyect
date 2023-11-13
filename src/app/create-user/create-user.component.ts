@@ -14,7 +14,7 @@ export class CreateUserComponent {
   disableSelect = new FormControl(false);
   regForm!: FormGroup;
   
-
+  // Constructor del componente, inyecta servicios y herramientas necesarios.
   constructor(private fb: FormBuilder,
     private route: Router,
     private authService: UsuarioService,
@@ -47,6 +47,7 @@ export class CreateUserComponent {
     return this.regForm.get('role')?.invalid && this.regForm.get('role')?.touched
   }
 
+  //formulario para crear usuarios
   crearFormulario(): void {
     this.regForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(4)]],
@@ -60,6 +61,7 @@ export class CreateUserComponent {
   }
 
 
+  // metodo para guardar el usuario ingresado en el formulario
   guardar() {
 
     if (this.regForm.invalid) {

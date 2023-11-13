@@ -19,6 +19,7 @@ export class FamiliarGroupsComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource = new MatTableDataSource(this.familiarGoups);
     
+// Constructor del componente, inyecta servicios y herramientas necesarios.
 constructor(private grupoService: GrupoService, public toast: ToastrService, private router: Router
 ){}
 
@@ -26,14 +27,17 @@ constructor(private grupoService: GrupoService, public toast: ToastrService, pri
    this.getGrupos();
   }
 
+  // Método para obtener los grupos familiares desde el servicio.
   getGrupos():void {
     this.grupoService.getGrupos().subscribe(data =>{
       this.familiarGoups = data;
+       // Actualiza la fuente de datos de la tabla y asigna el paginador.
       this.dataSource = new MatTableDataSource(this.familiarGoups);
       this.dataSource.paginator = this.paginator;
     })
   }
 
+// Método para eliminar un grupo por su identificador.
   eliminarGrupo(idGrupo : number){
     this.grupoService.deleteGrupo(idGrupo).subscribe({
       next: (response) => {
@@ -46,6 +50,7 @@ constructor(private grupoService: GrupoService, public toast: ToastrService, pri
       },
       complete: () => {
         this.toast.warning('Eliminando...', 'Borrado exitoso!');
+         // Recarga la página después de un breve tiempo.
         setTimeout(() => {
           window.location.reload();
          }, 1500);

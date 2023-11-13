@@ -13,8 +13,8 @@ import { ReunionService } from '../service/reunion.service';
 export class CreateMeetComponent {
   disableSelect = new FormControl(false);
   regForm!: FormGroup;
-  
 
+  // Constructor del componente, inyecta servicios y herramientas necesarios.
   constructor(private fb: FormBuilder,private route: Router,
     private reunionService: ReunionService, private toast: ToastrService){
     this.crearFormulario();
@@ -34,6 +34,7 @@ export class CreateMeetComponent {
     return this.regForm.get('descripcion')?.invalid && this.regForm.get('descripcion')?.touched
   }
   
+  // formulario para la creacion de Reuniones
   crearFormulario(): void {
     this.regForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(4)]],
