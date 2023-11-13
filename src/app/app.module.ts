@@ -20,6 +20,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { EditmeetingsComponent } from './meetings/editmeetings/editmeetings.component';
 import { EditusersComponent } from './users/editusers/editusers.component';
 import { EditfgroupsComponent } from './familiar-groups/editfgroups/editfgroups.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -45,11 +47,13 @@ import { EditfgroupsComponent } from './familiar-groups/editfgroups/editfgroups.
     ToastrModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
     BrowserAnimationsModule,
     SharedModule
   ],
   providers: [
-    DatePipe
+    DatePipe,CookieService
   ],
   bootstrap: [AppComponent]
 })

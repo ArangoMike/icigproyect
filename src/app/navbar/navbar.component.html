@@ -27,22 +27,32 @@
         </a>
        
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="this.userT">
             <a class="nav-link" href="main">Inicio</a>
           </li>
           
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="this.userT">
             <a class="nav-link" href="main/users">Usuarios</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="this.userT">
             <a class="nav-link" href="main/meetings">Reuniones</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="this.userT">
             <a class="nav-link" href="main/familiargroups">Grupos F.</a>
           </li>
+          
         </ul>
+        <button class="btn  ms-3" *ngIf="this.userT" type="button" (click)="logout()" >
+                    
+          <i class="bi bi-box-arrow-left me-1"></i>
+         Cerrar sesión
+          <span class="badge bg-dark text-white ms-1 rounded-pill"></span>
+      </button>
+
+        
       
       </div>
      
     </div>
+    
   </nav>

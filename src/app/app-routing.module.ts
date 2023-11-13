@@ -5,6 +5,7 @@ import { CreateMeetComponent } from './create-meet/create-meet.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { EditfgroupsComponent } from './familiar-groups/editfgroups/editfgroups.component';
 import { FamiliarGroupsComponent } from './familiar-groups/familiar-groups.component';
+import { guardGuard } from './guards/guard.guard';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { EditmeetingsComponent } from './meetings/editmeetings/editmeetings.component';
@@ -14,54 +15,60 @@ import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {
-    path:'',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
-  {
     path: 'login',
     component: LoginComponent
   },
   {
     path:'main',
-    component: MainComponent
+    component: MainComponent,
+    canActivate: [guardGuard]
   },
   {
     path:'main/users',
-    component: UsersComponent
+    component: UsersComponent,
+    canActivate: [guardGuard]
   },
   {
     path:'main/meetings',
-    component: MeetingsComponent
+    component: MeetingsComponent,
+    canActivate: [guardGuard]
   },
   {
     path:'main/meetings/create-meet',
-    component: CreateMeetComponent
+    component: CreateMeetComponent,
+    canActivate: [guardGuard]
   },
   {
     path: 'main/users/create-user',
-    component: CreateUserComponent
+    component: CreateUserComponent,
+    canActivate: [guardGuard]
   },
   {
     path: 'main/users/edit-user/:id',
-    component: EditusersComponent
+    component: EditusersComponent,
+    canActivate: [guardGuard]
   },
   {
     path: 'main/familiargroups',
-    component: FamiliarGroupsComponent
+    component: FamiliarGroupsComponent,
+    canActivate: [guardGuard]
   },
   {
     path: 'main/familiargroups/create',
-    component: CreateFgroupComponent
+    component: CreateFgroupComponent,
+    canActivate: [guardGuard]
   },
   {
     path: 'main/familiargroups/edit-fgroup/:id',
-    component: EditfgroupsComponent
+    component: EditfgroupsComponent,
+    canActivate: [guardGuard]
   },
   {
     path: 'main/meetings/edit-meet/:id',
-    component: EditmeetingsComponent
+    component: EditmeetingsComponent,
+    canActivate: [guardGuard]
   },
+  {path: '**', pathMatch: 'full', redirectTo:'login'}
   
 ];
 

@@ -39,4 +39,10 @@ export class UsuarioService {
     let direction = this.url +'/'+ id;
     return this.http.put<any>(direction,usuario);
   }
+
+  loginUser(user: any):Observable<boolean>{
+    let direction = this.url + '/login';
+    return this.http.post<boolean>(direction,user);
+  }
+
 }
